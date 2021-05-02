@@ -10,12 +10,12 @@ class WebfileStream extends Component {
         return (
             <div>
                 <WebfileStreamInput />
-                <WebfileStreamEntry test={'hello'}/>
+                <WebfileStreamEntry test={'content'}/>
                 <WebfileStreamEntry test={'2'}/>
-                <WebfileStreamEntry/>
-                <WebfileStreamEntry/>
-                <WebfileStreamEntry/>
-                <WebfileStreamEntry/>
+                <WebfileStreamEntry test={'3'}/>
+                <WebfileStreamEntry test={'4'}/>
+                <WebfileStreamEntry test={'5'}/>
+                <WebfileStreamEntry test={'6'}/>
             </div>
         );
     }
