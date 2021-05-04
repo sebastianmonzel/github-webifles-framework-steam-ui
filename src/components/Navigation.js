@@ -11,11 +11,11 @@ import LocationOnIcon from '@material-ui/icons/LocationOn'
 class Navigation extends Component {
 
     render() {
+
         return (
-            <BottomNavigation>
-                <BottomNavigationAction label="Recents" icon={<HomeIcon />} href={"/webfilestream"} />
+            <BottomNavigation showLabels>
+                <BottomNavigationAction label="webfiles stream" icon={<HomeIcon />} href={"/webfilestream"} />
                 <BottomNavigationAction label="Configuration" icon={<SettingsIcon />} href={"/webfileconfiguration"} />
-                <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
             </BottomNavigation>
         );
     }

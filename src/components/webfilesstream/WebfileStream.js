@@ -2,13 +2,14 @@ import React, {Component} from 'react';
 
 import WebfileStreamInput from "./WebfileStreamInput";
 import WebfileStreamEntry from "./WebfileStreamEntry";
+import Box from "@material-ui/core/Box";
 
 
 class WebfileStream extends Component {
 
     render() {
         return (
-            <div>
+            <Box m={6}>
                 <WebfileStreamInput />
                 <WebfileStreamEntry test={'content'}/>
                 <WebfileStreamEntry test={'2'}/>
@@ -16,7 +17,7 @@ class WebfileStream extends Component {
                 <WebfileStreamEntry test={'4'}/>
                 <WebfileStreamEntry test={'5'}/>
                 <WebfileStreamEntry test={'6'}/>
-            </div>
+            </Box>
         );
     }
 

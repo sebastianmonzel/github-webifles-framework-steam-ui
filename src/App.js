@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import WebfileStream from "./components/WebfileStream";
+import WebfileStream from "./components/webfilesstream/WebfileStream";
 
 import {BrowserRouter} from 'react-router-dom'
 import Navigation from "./components/Navigation";
 import {Route, Routes} from "react-router";
-import Configuration from "./components/Configuration";
+import Configuration from "./components/configuration/Configuration";
 
 function App() {
     return (

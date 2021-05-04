@@ -11,13 +11,14 @@ class WebfileStreamInput extends Component {
 
     render() {
         return (
-            <Box component="span" m={5}>
-                <TextField fullWidth={true} variant="outlined" label={"Text"} />
+            <Box component="div" m={5}>
+                <TextField fullWidth={true} variant="outlined" label={"Message"} multiline />
+                datastore:
                 <Select labelId="label" id="select">
                     <MenuItem value="10">friends_only</MenuItem>
                     <MenuItem value="20">all</MenuItem>
-                </Select>
-                <Button>abschicken</Button>
+                </Select><br />
+                <Button>Save</Button>
             </Box>
         );
     }
