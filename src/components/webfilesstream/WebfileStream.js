@@ -9,18 +9,17 @@ class WebfileStream extends Component {
 
     render() {
         return (
-            <Box m={6}>
+            <Box>
                 <WebfileStreamInput />
-                <WebfileStreamEntry test={'content'}/>
-                <WebfileStreamEntry test={'2'}/>
-                <WebfileStreamEntry test={'3'}/>
-                <WebfileStreamEntry test={'4'}/>
-                <WebfileStreamEntry test={'5'}/>
-                <WebfileStreamEntry test={'6'}/>
+                <WebfileStreamEntry content={'Beautiful Entry ❤ - content'}/>
+                <WebfileStreamEntry content={'Beautiful Entry ❤ - 2'}/>
+                <WebfileStreamEntry content={'Beautiful Entry ❤ - 3'}/>
+                <WebfileStreamEntry content={'Beautiful Entry ❤ - 4'}/>
+                <WebfileStreamEntry content={'Beautiful Entry ❤ - 5'}/>
+                <WebfileStreamEntry content={'Beautiful Entry ❤ - 6'}/>
             </Box>
         );
     }
-
 
 }
 

@@ -9,9 +9,10 @@ class DatastoreConfiguration extends Component {
 
     render() {
         return (
-            <Box m={5}>
+            <Box marginTop={0} marginLeft={2} marginRight={2} marginBottom={2}>
                 <Card variant="outlined">
                     <CardContent><b>datastore name</b>: {this.props.name}<br />
+                        readonly: {this.props.readonly.toString()}<br />
                         <b>URL</b>: {this.props.url}</CardContent>
                 </Card>
             </Box>

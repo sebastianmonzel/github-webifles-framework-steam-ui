@@ -11,12 +11,12 @@ class DatastoreInput extends Component {
 
     render() {
         return (
-            <Box component={"div"} m={5}>
+            <Box component={"div"} m={2}>
                 <Card variant="outlined">
                     <CardContent>
                         <TextField variant="outlined" fullWidth={true} label={"datastore name"} value={this.props.name} /><br/><br />
                         <TextField variant="outlined" fullWidth={true} label={"URL"} value={this.props.url} /><br />
-                        <Button>Create</Button>
+                        <Button>Add Datastore</Button>
                     </CardContent>
                 </Card>
             </Box>
