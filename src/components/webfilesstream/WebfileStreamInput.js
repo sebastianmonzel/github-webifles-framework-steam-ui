@@ -6,7 +6,7 @@ import Box from "@material-ui/core/Box";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import axios from "axios";
-import {createWebfile} from "../../rest/webfilestream.endpoint";
+import {storeWebfile} from "../../rest/webfilestream.endpoint";
 
 
 class WebfileStreamInput extends Component {
@@ -45,7 +45,7 @@ class WebfileStreamInput extends Component {
     }
 
     doSave() {
-        createWebfile(this.state.datastore, this.state.message);
+        storeWebfile(this.state.datastore, this.state.message);
     }
 }
 
