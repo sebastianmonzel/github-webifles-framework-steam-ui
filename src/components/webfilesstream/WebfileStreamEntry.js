@@ -15,6 +15,7 @@ class WebfileStreamEntry extends Component {
             <Box component="div" marginTop={2} marginLeft={2} marginRight={2} marginBottom={0}>
                 <Card variant="outlined">
                     <CardContent>
+                        {this.props.date}<br />
                         {this.props.content}<br />
                         <Button href={'link'} color="primary" startIcon={<GetAppIcon />}>Download webfile</Button>
                     </CardContent>

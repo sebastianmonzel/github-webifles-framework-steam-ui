@@ -6,6 +6,7 @@ import Box from "@material-ui/core/Box";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import axios from "axios";
+import {createWebfile} from "../../rest/webfilestream.endpoint";
 
 
 class WebfileStreamInput extends Component {
@@ -14,8 +15,9 @@ class WebfileStreamInput extends Component {
         super(props);
         this.props = props;
 
-        this.state = {datastore: ''};
-        this.doChange = this.doChange.bind(this);
+        this.state = {datastore: '', message: ''};
+        this.doChangeDatastore = this.doChangeDatastore.bind(this);
+        this.doChangeMessage = this.doChangeMessage.bind(this);
         this.doSave = this.doSave.bind(this);
 
     }
@@ -23,9 +25,9 @@ class WebfileStreamInput extends Component {
     render() {
         return (
             <Box component="div" m={2}>
-                <TextField fullWidth={true} variant="outlined" label={"Message"} multiline />
+                <TextField onChange={this.doChangeMessage} fullWidth={true} variant="outlined" label={"Message"} multiline />
                 datastore:
-                <Select onChange={this.doChange} labelId="label" id="select">
+                <Select onChange={this.doChangeDatastore} labelId="label" id="select">
                     <MenuItem value="friends_only">friends_only</MenuItem>
                     <MenuItem value="all">all</MenuItem>
                 </Select><br />
@@ -34,22 +36,16 @@ class WebfileStreamInput extends Component {
         );
     }
 
-    doChange(e) {
-        this.setState({datastore: e.target.value});
+    doChangeDatastore(e) {
+        this.setState({datastore: e.target.value, message: this.state.message});
+    }
+
+    doChangeMessage(e) {
+        this.setState({datastore: this.state.datastore, message: e.target.value});
     }
 
     doSave() {
-
-        axios({
-            method: 'post',
-            url: '/login',
-            data: {
-                datastore: this.state.datastore,
-                lastName: 'Williams'
-            }
-        });
-
-        console.log("save");
+        createWebfile(this.state.datastore, this.state.message);
     }
 }
 
