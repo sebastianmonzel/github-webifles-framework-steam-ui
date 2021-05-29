@@ -1,19 +1,18 @@
 import axios from "axios";
 
 
-const DATASTORE_URL = "http://webfiles.sebastianmonzel.de/datastore/";
+const DATASTORE_URL = "https://webfiles.sebastianmonzel.de/jenkins/datastore/";
 
 export function retrieveWebfiles() {
-    return [
-        {
-            date: "2021-05-16 09:55",
-            text: "Beautiful Entry 1 ❤",
-        },
-        {
-            date: "2021-05-16 09:56",
-            text: "Beautiful Entry 2 ❤",
-        }
-    ];
+
+    let promise = axios({
+        method: 'get',
+        url: DATASTORE_URL,
+    }).then(
+        function (response) {
+            return response.data;
+        });
+    return promise;
 }
 
 export function storeWebfile(datastore, message) {

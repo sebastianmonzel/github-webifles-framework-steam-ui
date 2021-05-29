@@ -1,25 +1,38 @@
 import React, {Component} from 'react';
 
 import WebfileStreamInput from "./WebfileStreamInput";
-import WebfileStreamEntry from "./WebfileStreamEntry";
-import Box from "@material-ui/core/Box";
 import {retrieveWebfiles} from "../../rest/webfilestream.endpoint";
+import Box from "@material-ui/core/Box";
+import WebfileStreamEntry from "./WebfileStreamEntry";
 
 
 class WebfileStream extends Component {
 
+    state = {
+        webfiles: []
+    }
+
+
+    constructor(props) {
+        super(props);
+        this.props = props;
+    }
+
+    componentDidMount() {
+        retrieveWebfiles()
+            .then(data => {
+                console.log(data);
+                this.setState({webfiles: data.webfiles});
+            });
+    }
+
     render() {
-
-        let webfiles = retrieveWebfiles();
-
-        let box = <Box>
+        let key = 0;
+        return <Box>
             <WebfileStreamInput/>
-            {webfiles
-                .map(webfile => <WebfileStreamEntry content={webfile.text} date={webfile.date}/>)
-            }
+            {this.state && this.state.webfiles ? this.state.webfiles
+                .map(webfile => <WebfileStreamEntry key={key++} content={webfile.firstname} date={webfile.date}/>) : <Box />}
         </Box>;
-
-        return box;
     }
 
 }
