@@ -1,13 +1,15 @@
 import axios from "axios";
+import {DATASTORE_CONFIGURATION} from "../components/configuration/DatastoreConfiguration";
 
+export function retrieveWebfiles(datastoreName) {
 
-const DATASTORE_URL = "https://webfiles.sebastianmonzel.de/jenkins/datastore/";
-
-export function retrieveWebfiles() {
+    let publicDatatstore = DATASTORE_CONFIGURATION
+        .filter(configuration => configuration.name === datastoreName)
+        .pop();
 
     let promise = axios({
         method: 'get',
-        url: DATASTORE_URL,
+        url: publicDatatstore.url,
     }).then(
         function (response) {
             return response.data;
@@ -15,13 +17,16 @@ export function retrieveWebfiles() {
     return promise;
 }
 
-export function storeWebfile(datastore, message) {
+export function storeWebfile(datastoreName, message) {
+
+    let publicDatatstore = DATASTORE_CONFIGURATION
+        .filter(configuration => configuration.name === datastoreName)
+        .pop();
 
     axios({
         method: 'post',
-        url: DATASTORE_URL,
+        url: publicDatatstore.url,
         data: {
-            datastore: datastore,
             webfile: {
                 message: message
             },

@@ -5,8 +5,8 @@ import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-import axios from "axios";
 import {storeWebfile} from "../../rest/webfilestream.endpoint";
+import DatastoreConfiguration, {DATASTORE_CONFIGURATION} from "../configuration/DatastoreConfiguration";
 
 
 class WebfileStreamInput extends Component {
@@ -28,8 +28,8 @@ class WebfileStreamInput extends Component {
                 <TextField onChange={this.doChangeMessage} fullWidth={true} variant="outlined" label={"Message"} multiline />
                 datastore:
                 <Select onChange={this.doChangeDatastore} labelId="label" id="select">
-                    <MenuItem value="friends_only">friends_only</MenuItem>
-                    <MenuItem value="all">all</MenuItem>
+                    {DATASTORE_CONFIGURATION
+                        .map(configuration => <MenuItem value={configuration.name}>{configuration.name}</MenuItem>)}
                 </Select><br />
                 <Button onClick={this.doSave}>Save</Button>
             </Box>

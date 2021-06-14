@@ -19,9 +19,8 @@ class WebfileStream extends Component {
     }
 
     componentDidMount() {
-        retrieveWebfiles()
+        retrieveWebfiles("public")
             .then(data => {
-                console.log(data);
                 this.setState({webfiles: data.webfiles});
             });
     }
